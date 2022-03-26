@@ -1,7 +1,9 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
+import infosReducer from './infos/infosSlice'
 
 export const store = configureStore({
   reducer: {
+    infos: infosReducer
   },
 });
 
