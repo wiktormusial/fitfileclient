@@ -1,12 +1,18 @@
 import { useRef, useEffect } from "react";
-import L from "leaflet";
+import { useAppSelector } from "../../hooks/redux/hooks";
+import { selectCoords, selectStatus } from "../../store/infos/infosSlice";
+import L, { LatLngTuple } from "leaflet";
+import { useNavigate } from "react-router-dom";
 
 const Map = () => {
   const ref = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
+  const status = useAppSelector(selectStatus);
+  const coords = useAppSelector(selectCoords);
 
   useEffect(() => {
-    if (ref.current) {
-      const map = L.map(ref.current).setView([50.96507, 7.11468], 10);
+    if (ref.current && status === "succeeded") {
+      const map = L.map(ref.current).setView([coords[0].x, coords[0].y], 10);
 
       L.tileLayer(
         `https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=${process.env.REACT_APP_MAPBOX_KEY}`,
@@ -20,8 +26,14 @@ const Map = () => {
           accessToken: process.env.REACT_APP_MAPBOX_KEY,
         }
       ).addTo(map);
+
+      const latlong: LatLngTuple[] = [];
+      coords.forEach((item) => latlong.push([item.x, item.y]));
+      L.polyline(latlong).addTo(map);
+    } else {
+      navigate("/");
     }
-  }, []);
+  }, [coords, navigate, status]);
 
   return <div ref={ref} style={{ height: 400, width: 600 }}></div>;
 };
