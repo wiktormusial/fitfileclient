@@ -20,6 +20,7 @@ const infosSlice = createSlice({
     }
 })
 
+export const selectState = (state: RootState) => state.infos.data
 export const selectCoords = (state: RootState) => state.infos.data.coords
 export const selectStatus = (state: RootState) => state.infos.status
 export const { dataAdded } = infosSlice.actions
