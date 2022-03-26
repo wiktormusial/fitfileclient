@@ -1,7 +1,8 @@
 import "./App.css";
+import IndexView from "./views/IndexView";
 
 function App() {
-  return <div>Hello wrold</div>;
+  return <IndexView />;
 }
 
 export default App;
