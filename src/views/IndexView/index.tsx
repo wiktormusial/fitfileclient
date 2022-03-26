@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../../hooks/redux/hooks";
 import { dataAdded } from "../../store/infos/infosSlice";
 import uploadFile from "../../api/uploadFile/uploadFIle";
@@ -6,11 +7,15 @@ import uploadFile from "../../api/uploadFile/uploadFIle";
 const IndexView = () => {
   const [file, setFile] = useState<File>();
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const getData = () => {
     if (file) {
       uploadFile(file)
-        .then((res) => dispatch(dataAdded(res)))
+        .then((res) => {
+          dispatch(dataAdded(res));
+          navigate("/dashboard");
+        })
         .catch((err) => console.log(err));
     }
   };
