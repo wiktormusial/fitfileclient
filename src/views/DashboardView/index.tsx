@@ -1,5 +1,7 @@
+import Map from "../../components/Map";
+
 const DashboardView = () => {
-  return <h1>Dashboard</h1>;
+  return <Map />;
 };
 
 export default DashboardView;

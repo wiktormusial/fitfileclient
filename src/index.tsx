@@ -5,6 +5,7 @@ import App from "./App";
 import { store } from "./store/store";
 import { Provider } from "react-redux";
 import * as serviceWorker from "./serviceWorker";
+import "leaflet/dist/leaflet.css";
 
 ReactDOM.render(
   <React.StrictMode>
