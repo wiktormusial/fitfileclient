@@ -1,3 +1,4 @@
+import Distance from "../../components/Distance";
 import Duration from "../../components/Duration";
 import Map from "../../components/Map";
 
@@ -6,6 +7,7 @@ const DashboardView = () => {
     <>
       <Map />
       <Duration />
+      <Distance />
     </>
   );
 };

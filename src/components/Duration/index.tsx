@@ -3,7 +3,7 @@ import { selectState } from "../../store/infos/infosSlice";
 
 const Duration = () => {
   const duration = useAppSelector(selectState).duration;
-  return <>Duration: {duration}</>;
+  return <div>Duration: {duration}</div>;
 };
 
 export default Duration;
