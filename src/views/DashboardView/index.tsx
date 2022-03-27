@@ -1,3 +1,4 @@
+import AvgSpeed from "../../components/AvgSpeed";
 import Distance from "../../components/Distance";
 import Duration from "../../components/Duration";
 import EndDate from "../../components/EndDate";
@@ -12,6 +13,7 @@ const DashboardView = () => {
       <Duration />
       <StartDate />
       <EndDate />
+      <AvgSpeed />
     </>
   );
 };
