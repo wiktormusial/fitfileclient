@@ -12,4 +12,9 @@ const Card = styled.div`
     }
 `
 
+export const CardIndex = styled(Card)`
+    text-align: center;
+    padding: 3em;
+`
+
 export default Card
