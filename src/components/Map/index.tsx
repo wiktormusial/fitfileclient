@@ -1,8 +1,15 @@
 import { useRef, useEffect } from "react";
+import styled from "styled-components";
 import { useAppSelector } from "../../hooks/redux/hooks";
 import { selectCoords, selectStatus } from "../../store/infos/infosSlice";
 import L, { LatLngTuple } from "leaflet";
 import { useNavigate } from "react-router-dom";
+import Card from "../Card";
+import { TextHeading } from "../Text";
+
+const Preview = styled.div`
+  height: 400px;
+`;
 
 const Map = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -27,7 +34,12 @@ const Map = () => {
     }
   }, [coords, navigate, status]);
 
-  return <div ref={ref} style={{ height: 400, width: 600 }}></div>;
+  return (
+    <Card>
+      <TextHeading>Map</TextHeading>
+      <Preview ref={ref}></Preview>
+    </Card>
+  );
 };
 
 export default Map;
