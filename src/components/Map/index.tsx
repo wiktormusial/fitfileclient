@@ -8,7 +8,7 @@ import Card from "../Card";
 import { TextHeading } from "../Text";
 
 const Preview = styled.div`
-  height: 400px;
+  height: 500px;
 `;
 
 const Map = () => {
