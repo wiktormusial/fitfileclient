@@ -6,35 +6,40 @@ import Duration from "../../components/Duration";
 import EndDate from "../../components/EndDate";
 import Map from "../../components/Map";
 import StartDate from "../../components/StartDate";
+import { useAppSelector } from "../../hooks/redux/hooks";
+import { selectStatus } from "../../store/infos/infosSlice";
+import CardSkeleton from "../../components/CardSkeleton";
 
 const Dashboard = styled.div`
   margin-top: 2em;
 `;
 
 const DashboardView = () => {
+  const status = useAppSelector(selectStatus);
+
   return (
     <Dashboard>
       <Container>
         <Row>
           <Col md="12" lg="6">
-            <Map />
+            {status == "loading" ? <CardSkeleton size={400} /> : <Map />}
           </Col>
           <Col lg="6">
-            <AvgSpeed />
+            {status == "loading" ? <CardSkeleton /> : <AvgSpeed />}
             <Row>
               <Col lg="6">
-                <Distance />
+                {status == "loading" ? <CardSkeleton /> : <Distance />}
               </Col>
               <Col lg="6">
-                <Duration />
+                {status == "loading" ? <CardSkeleton /> : <Duration />}
               </Col>
             </Row>
             <Row>
               <Col lg="6">
-                <StartDate />
+                {status == "loading" ? <CardSkeleton /> : <StartDate />}
               </Col>
               <Col lg="6">
-                <EndDate />
+                {status == "loading" ? <CardSkeleton /> : <EndDate />}
               </Col>
             </Row>
           </Col>

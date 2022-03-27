@@ -7,6 +7,7 @@ import { Provider } from "react-redux";
 import * as serviceWorker from "./serviceWorker";
 import "bootstrap/dist/css/bootstrap-grid.min.css";
 import "leaflet/dist/leaflet.css";
+import "react-loading-skeleton/dist/skeleton.css";
 
 ReactDOM.render(
   <React.StrictMode>

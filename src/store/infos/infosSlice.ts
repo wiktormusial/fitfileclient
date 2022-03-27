@@ -16,12 +16,15 @@ const infosSlice = createSlice({
         dataAdded(state, action: PayloadAction<Infos>) {
             state.data = action.payload
             state.status = "succeeded"
-        } 
+        },
+        setLoading(state) {
+            state.status = "loading"
+        }
     }
 })
 
 export const selectState = (state: RootState) => state.infos.data
 export const selectCoords = (state: RootState) => state.infos.data.coords
 export const selectStatus = (state: RootState) => state.infos.status
-export const { dataAdded } = infosSlice.actions
+export const { dataAdded, setLoading } = infosSlice.actions
 export default infosSlice.reducer
