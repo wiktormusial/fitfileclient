@@ -8,7 +8,7 @@ const StartDate = () => {
   const startDate = useAppSelector(selectState).data_start;
   return (
     <Card>
-      <TextHeading>Start date:</TextHeading>
+      <TextHeading>Start date</TextHeading>
       <TextLead>{dataParser(startDate)}</TextLead>
     </Card>
   );

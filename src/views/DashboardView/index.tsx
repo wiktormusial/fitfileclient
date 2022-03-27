@@ -22,24 +22,24 @@ const DashboardView = () => {
       <Container>
         <Row>
           <Col md="12" lg="6">
-            {status == "loading" ? <CardSkeleton size={400} /> : <Map />}
+            {status === "loading" ? <CardSkeleton size={400} /> : <Map />}
           </Col>
           <Col lg="6">
-            {status == "loading" ? <CardSkeleton /> : <AvgSpeed />}
+            {status === "loading" ? <CardSkeleton /> : <AvgSpeed />}
             <Row>
               <Col lg="6">
-                {status == "loading" ? <CardSkeleton /> : <Distance />}
+                {status === "loading" ? <CardSkeleton /> : <Distance />}
               </Col>
               <Col lg="6">
-                {status == "loading" ? <CardSkeleton /> : <Duration />}
+                {status === "loading" ? <CardSkeleton /> : <Duration />}
               </Col>
             </Row>
             <Row>
               <Col lg="6">
-                {status == "loading" ? <CardSkeleton /> : <StartDate />}
+                {status === "loading" ? <CardSkeleton /> : <StartDate />}
               </Col>
               <Col lg="6">
-                {status == "loading" ? <CardSkeleton /> : <EndDate />}
+                {status === "loading" ? <CardSkeleton /> : <EndDate />}
               </Col>
             </Row>
           </Col>
