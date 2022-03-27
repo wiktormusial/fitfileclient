@@ -9,6 +9,7 @@ import { TextHeading } from "../Text";
 
 const Preview = styled.div`
   height: 500px;
+  width: 100%;
 `;
 
 const Map = () => {
